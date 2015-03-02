@@ -1,0 +1,1 @@
+This program will showcase the implementation of a polling server which will have a polling terminal having a poll of connection from client.It remains in polling state untill a client comes.As soon as a client request it it will process its request.

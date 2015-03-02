@@ -1,0 +1,1 @@
+We calculate all the integers from 1 to 1000 which are divisible by 7.We store the output in a file "Divide.txt".

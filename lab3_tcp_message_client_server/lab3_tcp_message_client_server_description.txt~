@@ -1,0 +1,1 @@
+In this program we follow the ideal client server implementation with a client request a server and server responds with a simple message.Server's response will be identified using connection descriptor.

@@ -1,0 +1,1 @@
+A program which instantiates server with multiple connection will lead to improper termination of child which was created using fork().Thus we provide explicit signal handler to handle death of child in parent and avoid such zombies.Concept can be implemented using wait() or waitpid().

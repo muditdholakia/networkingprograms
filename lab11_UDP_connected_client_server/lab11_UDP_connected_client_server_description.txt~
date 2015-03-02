@@ -1,0 +1,1 @@
+In normal UDP client server scenario client sends request and reply comes on the random path.This may lead to unreliable delivery of messages.To implement a robust application we use connect() function from the client which will deliver a request and reply also can be taken from that connection.

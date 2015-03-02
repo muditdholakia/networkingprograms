@@ -1,0 +1,54 @@
+The xinetd package provides a number of security features, including the ability to finely control access based on source IP address and time of access. It features extensive logging, and also provides some protection from denial of service attacks. Global defaults for all services launched through xinetd are configured in the file /etc/xinetd.conf. Use man xinetd.conf for more information:
+
+defaults
+{
+        instances               = 60
+        log_type                = SYSLOG daemon
+        log_on_success          = HOST PID
+        log_on_failure          = HOST
+        cps                     = 25 30
+}
+includedir /etc/xinetd.d
+
+The first configuration option, instances, specifies the maximum number of connections permitted for any one service. This can be used to protect the system from certain types of denial of service attacks. The value chosen will depend on the available system resources and bandwidth. Another denial of service protection mechanism is to limit the number of connections from a single host. To enable this functionality, add the following line to the configuration (just below cps = 25 30):
+
+per_source		= 10
+
+This will limit each host to only 10 connections per service. By default, xinetd accepts connections from all hosts; to change this behaviour, add the line:
+
+only_from		=
+
+to the configuration options. This will deny access to all hosts for all services, by default. The hosts permitted to connect to specific services will have to be configured in each of those services' configuration settings.
+
+xinetd uses separate configuration files to define the behaviour of each service it supports. The settings in the server specific configuration files override the behaviour specified in the global file. These are found in the /etc/xinetd.d directory. For example, to permit access from 192.168.2.2 and 10.1.1.1 to the SSH (remote login) service, edit the /etc/xinetd.d/ssh file:
+
+service ssh
+{
+        disable = no
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/libexec/sshd-keygen-wrapper
+        server_args     = -i
+        groups          = yes
+        flags           = REUSE IPv6
+        session_create  = yes
+}
+
+And add the lines (just after the line session_create = yes):
+
+only_from		= 192.168.2.2 10.1.1.1
+
+If any hosts are to be explicitly denied access, the no_access setting can be used, for example:
+
+no_access		= 10.1.1.9
+
+It is also possible to add networks instead of individual IP addresses to either of the configuration settings mentioned above. These can be specified in a number of formats (see the xinetd.conf man page for more details). Any settings specified in service specific configuration files override the global settings specified in /etc/xinetd.conf. For example, to override the default maximum number of instances of SSH, add the line:
+
+instances		= 8
+
+Note: By default, Mac OS X enables IP version 6 on all network services started through the xinetd service, but since the IP addresses specified above are in IPv4 notation, they will not work as expected. It is necessary to disable IPv6 compatibility on all network services where access controls are specified using the IPv4 notation. This is done, by removing the string IPv6 from the line:
+
+flags    = REUSE IPv6
+
+from each service's configuration file. Restart the xinetd process for the changes to the configuration files to take effect. 

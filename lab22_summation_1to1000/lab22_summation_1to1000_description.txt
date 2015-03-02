@@ -1,0 +1,1 @@
+We demonstrate the use of pthread to calculate sum of first 1000 numbers.Each thread will be responsible for computation and also makes the execution faster than normal procedural addition.

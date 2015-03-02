@@ -1,0 +1,1 @@
+We use UDP or a datagram socket aspect instead of tcp and rest will be same as we did in the TCP unix domain protocol program.

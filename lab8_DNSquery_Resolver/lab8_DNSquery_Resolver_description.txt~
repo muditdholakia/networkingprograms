@@ -1,0 +1,1 @@
+We provide an implementation through which we can observe the ideal flow of a DNS resolver either host to ip conversion or ip to hostname conversion.We use gethostbyname() and gethostbyaddr() to implement a DNS resolver.

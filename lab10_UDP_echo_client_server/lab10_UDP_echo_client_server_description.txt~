@@ -1,0 +1,1 @@
+It follows normal client server program but with Datagram socket.Also UDP client uses asynchronous rquest and replies over the server.Here there is no listen queues as it was previosly part of TCP implementation.

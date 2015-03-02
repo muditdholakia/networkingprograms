@@ -1,0 +1,1 @@
+We implement a program which will identify the byte ordering of the current system.Using a simple datatype provision we will determine its memory addresses and observe how it is stored in the actual system.

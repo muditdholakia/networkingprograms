@@ -1,0 +1,1 @@
+Unix domain protocols provide an alternative way to measure the client server request and response.We bind our server to a file and asynchronously measure the request from client and map it to that file.using same file we will take the response from the server.Hence using a file as a communication protocol we follow the Unix Domain facilities as implementation.

@@ -1,0 +1,1 @@
+Normal program will only allow one client at a time.But use of fork() at server side will give raise to implement number of clients connected simultaneously with having a separate process copies of thier own.Every communcation will be done using connection descriptors.

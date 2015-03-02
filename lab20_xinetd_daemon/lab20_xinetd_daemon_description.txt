@@ -1,0 +1,8 @@
+Unix provides some system daemons through which dynamic services can be implemented.We follow the procedure below to create our service daemon using xinetd daemon.We follow steps as follow.
+1.Create a server code.
+2.Make an executable of server.
+3.Change the service coniguration using root user rights.
+4.Provide the address or path of executable with some environmental options in the co nfiguration.
+5.Save the configuration.
+6.Restart the service.
+7.Request the connection and measure the daemon response.

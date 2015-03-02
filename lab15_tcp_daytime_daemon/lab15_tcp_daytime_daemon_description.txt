@@ -1,0 +1,1 @@
+Instead of compiling the server everytime we take a generalised copy of an executable server which will be daemon in execution and replies to a request with date and time of the system.A client is to be explicitly instatiated everytime.
